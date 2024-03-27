@@ -29,7 +29,7 @@ def upload_JSON(request):
 
             for item_data in items:
                 item = Item.objects.create(
-                    
+                    receipt_no = receipt,
                     qty = item_data['qty'],
                     description = item_data['description'],
                     unit_price = item_data['unit_price'],
@@ -39,7 +39,7 @@ def upload_JSON(request):
 
             fullname = customers['name'].split(' ')
             customer = Customer.objects.create(
-                
+                receipt_no = receipt,
                 fname = fullname[0],
                 lname = fullname[1],
                 address = customers['address']

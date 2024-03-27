@@ -6,12 +6,14 @@ class Receipt(models.Model):
     date = models.CharField(max_length=15)
 
 class Item(models.Model):
+    receipt_no = models.ForeignKey(Receipt, on_delete = models.SET_NULL, null = True, blank =  False)
     qty = models.IntegerField(default=1)
     description = models.TextField(null = False, blank = False)
     unit_price = models.DecimalField(max_digits = 11, decimal_places = 2)
     amount = models.DecimalField(max_digits = 11, decimal_places = 2)
 
 class Customer(models.Model):
+    receipt_no = models.ForeignKey(Receipt, on_delete = models.SET_NULL, null = True, blank =  False)
     fname = models.CharField(max_length = 20)
     lname = models.CharField(max_length = 20)
     address = models.TextField(null = True, blank = True)
