@@ -74,23 +74,53 @@ WSGI_APPLICATION = 'fetchdata.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'django-mysql',
+#         'USER':'root',
+#         'PASSWORD':'Root@123',
+#         'HOST':'localhost', 
+#         'PORT': '3306'                  
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django-mysql',
-        'USER':'root',
-        'PASSWORD':'Root@123',
-        'HOST':'localhost', 
-        'PORT': '3306'                  
-    }
+# import firebase_admin
+# from firebase_admin import credentials
+
+# cred = credentials.Certificate('Firebase\Firebase-service-account-key.json')
+# firebase_admin.initialize_app(cred)
+
+#the below traditional approach does not apply to firebase database, do not use it 
+# FIREBASE_DATABASES = {
+#     'default': {
+#         'ENGINE':'django-firebase',
+#         'URL': 'https://django-firebase-75c7c-default-rtdb.firebaseio.com/'
+#     }
+# }
+
+import pyrebase
+
+config = {
+    'databaseURL': "https://django-firebase-75c7c-default-rtdb.firebaseio.com",
+    'apiKey': "AIzaSyDCyl6_qnQFxUvgwzeWKBA2Y6_FZlq9qrg",
+    'authDomain': "django-firebase-75c7c.firebaseapp.com",
+    'projectId': "django-firebase-75c7c",
+    'storageBucket': "django-firebase-75c7c.appspot.com",
+    'messagingSenderId': "284859412343",
+    'appId': "1:284859412343:web:0cdf3c68fd3224d1db7b72"
 }
+
+firebase = pyrebase.initialize_app(config)
+authe = firebase.auth()
+database = firebase.database()
 
 
 # Password validation

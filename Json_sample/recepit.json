@@ -1,0 +1,29 @@
+{
+  "receipt": {
+    "bill_to": {
+      "name": "Kavindra Mannan",
+      "address": "27, Dlf City, Gupta\nDelhi, Delhi 40003"
+    },
+    "ship_to": {
+      "name": "Kavindra Mannan",
+      "address": "264, Abdul Rehman Mumbai, Bihar 40009"
+    },
+    "items": [	
+      {"qty": 1, "description": "Frontend design restructure", "unit_price": 9999.00, "amount": 9999.00},
+      {"qty": 2, "description": "Custom icon package", "unit_price": 975.00, "amount": 1950.00},
+      {"qty": 3, "description": "Gandhi mouse pad", "unit_price": 99.00, "amount": 297.00}
+    ],	
+    "receipt_details": {
+      "receipt_number": "IN-001",
+      "receipt_date": "29/01/2019",
+      "po_number": "2430/2019",
+      "due_date": "26/04/2019",
+      "subtotal": 12246.00,
+      "gst": 1469.52,
+      "total": 13715.52
+    },
+    "logo": "Saffron Design 77 Namrata Bldg\nDelhi, Delhi 400077",
+    "footer": "Pray Chopra\nThank you",
+    "terms_conditions": "Payment is due within 15 days\nState Bank of India\nAccount Number: 12345678 Routing Number: 09876543210"
+  }
+}
